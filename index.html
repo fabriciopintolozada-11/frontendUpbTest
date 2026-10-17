@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Productos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Gestión de Productos</h1>
+        <p class="subtitulo">Página → Backend (Express) → PostgreSQL</p>
+        <p class="api">API: <code id="api-url"></code> <span id="estado-api" class="estado">comprobando…</span></p>
+    </header>
+
+    <main>
+        <div id="mensaje" class="mensaje oculto" role="status"></div>
+
+        <section class="tarjeta">
+            <h2 id="titulo-form">Nuevo producto</h2>
+            <form id="form-producto" novalidate>
+                <input type="hidden" id="producto-id">
+                <div class="campos">
+                    <label>Nombre
+                        <input type="text" id="nombre" maxlength="100" required placeholder="Ej. Teclado mecánico">
+                    </label>
+                    <label>Precio (Bs)
+                        <input type="number" id="precio" min="0" step="0.01" placeholder="0.00">
+                    </label>
+                    <label>Stock
+                        <input type="number" id="stock" min="0" step="1" placeholder="0">
+                    </label>
+                </div>
+                <div class="acciones">
+                    <button type="submit" id="btn-guardar" class="primario">Crear producto</button>
+                    <button type="button" id="btn-cancelar" class="oculto">Cancelar edición</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="tarjeta">
+            <h2>Buscar</h2>
+            <div class="busquedas">
+                <form id="form-buscar" class="en-linea">
+                    <input type="search" id="buscar-nombre" maxlength="100" placeholder="Buscar por nombre…">
+                    <button type="submit">Buscar</button>
+                    <button type="button" id="btn-todos">Ver todos</button>
+                </form>
+                <form id="form-id" class="en-linea">
+                    <input type="number" id="buscar-id" min="1" step="1" placeholder="Consultar por id" required>
+                    <button type="submit">Consultar</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="tarjeta">
+            <h2>Productos <span id="contador" class="contador"></span></h2>
+            <div class="tabla-contenedor">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th class="num">Precio</th>
+                            <th class="num">Stock</th>
+                            <th>Creado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-productos"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

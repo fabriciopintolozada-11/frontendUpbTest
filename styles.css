@@ -1,0 +1,260 @@
+:root {
+    --fondo: #f4f6fb;
+    --tarjeta: #ffffff;
+    --texto: #1f2937;
+    --suave: #6b7280;
+    --borde: #e5e7eb;
+    --primario: #2563eb;
+    --primario-hover: #1d4ed8;
+    --peligro: #dc2626;
+    --exito-fondo: #dcfce7;
+    --exito-texto: #166534;
+    --error-fondo: #fee2e2;
+    --error-texto: #991b1b;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+}
+
+header {
+    background: var(--primario);
+    color: #fff;
+    padding: 24px 16px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0 0 4px;
+}
+
+.subtitulo,
+.api {
+    margin: 4px 0;
+    opacity: 0.9;
+    font-size: 0.9rem;
+}
+
+.api code {
+    word-break: break-all;
+}
+
+.estado {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.2);
+    font-size: 0.8rem;
+}
+
+.estado.ok {
+    background: #16a34a;
+}
+
+.estado.error {
+    background: var(--peligro);
+}
+
+main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+.tarjeta {
+    background: var(--tarjeta);
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+}
+
+.tarjeta h2 {
+    margin-top: 0;
+    font-size: 1.15rem;
+}
+
+.campos {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 12px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.9rem;
+    color: var(--suave);
+}
+
+input {
+    font: inherit;
+    padding: 8px 10px;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    color: var(--texto);
+    min-width: 0;
+}
+
+input:focus {
+    outline: 2px solid var(--primario);
+    outline-offset: -1px;
+}
+
+button {
+    font: inherit;
+    padding: 8px 14px;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    background: #fff;
+    color: var(--texto);
+    cursor: pointer;
+}
+
+button:hover {
+    background: #f3f4f6;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+button.primario {
+    background: var(--primario);
+    border-color: var(--primario);
+    color: #fff;
+}
+
+button.primario:hover {
+    background: var(--primario-hover);
+}
+
+button.peligro {
+    color: var(--peligro);
+    border-color: #fca5a5;
+}
+
+button.peligro:hover {
+    background: var(--error-fondo);
+}
+
+.acciones {
+    margin-top: 12px;
+    display: flex;
+    gap: 8px;
+}
+
+.busquedas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.en-linea {
+    display: flex;
+    gap: 8px;
+    flex: 1 1 280px;
+}
+
+.en-linea input {
+    flex: 1;
+}
+
+.tabla-contenedor {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+th,
+td {
+    padding: 10px 8px;
+    border-bottom: 1px solid var(--borde);
+    text-align: left;
+    white-space: nowrap;
+}
+
+td.nombre {
+    white-space: normal;
+    word-break: break-word;
+}
+
+th {
+    color: var(--suave);
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+td .acciones {
+    margin: 0;
+}
+
+td button {
+    padding: 4px 10px;
+    font-size: 0.85rem;
+}
+
+tr.resaltado {
+    background: #eff6ff;
+}
+
+.vacio {
+    text-align: center;
+    color: var(--suave);
+    padding: 24px;
+}
+
+.contador {
+    color: var(--suave);
+    font-weight: normal;
+    font-size: 0.9rem;
+}
+
+.mensaje {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.mensaje.exito {
+    background: var(--exito-fondo);
+    color: var(--exito-texto);
+}
+
+.mensaje.error {
+    background: var(--error-fondo);
+    color: var(--error-texto);
+}
+
+.mensaje.info {
+    background: #e0e7ff;
+    color: #3730a3;
+}
+
+.oculto {
+    display: none;
+}
+
+@media (max-width: 640px) {
+    .campos {
+        grid-template-columns: 1fr;
+    }
+}
