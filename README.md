@@ -17,7 +17,7 @@ Recorrido: **Página → backend (Express) → PostgreSQL → respuesta en la p�
 La URL del backend está en [`config.js`](config.js):
 
 ```js
-const API_PUBLICA = 'https://backendupbtest.onrender.com';
+const API_PUBLICA = 'https://backendupbtest-hjcd.onrender.com';
 const API_LOCAL = 'http://localhost:3000';
 ```
 
